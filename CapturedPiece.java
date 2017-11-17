@@ -1,5 +1,5 @@
 package doubutusyougi;
-
+//取った駒を保持
 public class CapturedPiece {
 
 	private char[] pieceInHandRow = new char[8];

@@ -1,7 +1,7 @@
 package doubutusyougi;
 
 import java.util.Scanner;
-
+//プレイヤーネーム入力
 public class InputPlayerName {
 
 	private String playerName1;

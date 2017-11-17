@@ -1,10 +1,10 @@
 package doubutusyougi;
+//バグの為途中
 
-//昨日やったところ、ここを考える前に、座標入力のバリデーションエラーについて考える必要がある
 import java.util.Scanner;
 
+//動かしたい駒の座標を打ち込ませる　その後座標を処理しやすい形にする。
 public class MoveHand {
-
 
 	private String convertPutAfterMoveHand;
 	private String convertedPutAfterMoveHand;
@@ -12,31 +12,29 @@ public class MoveHand {
 	private String convertPutBeforeMoveHand;
 	private String convertedPutBeforeMoveHand;
 
-
-
-	 	void putAfterMoveHand() {
+	void putAfterMoveHand() {
 
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("うえええええええええええええい");
+		System.out.println("putAfterMoveHandに飛んできているかどうかコメント");
 		String d;
 
 		System.out.println("動かしたい駒の座標を入力してください");
 
-		//盤面以外の座標をはじく
 		do {
 			System.out.println("盤面の座標もしくは、持ち駒の座標を入力してください");
 			convertPutAfterMoveHand = scanner.nextLine();
 			d = convertPutAfterMoveHand;
 		} while (
-
-		!("1,1".equals(d)) && !("1,2".equals(d)) && !("1,3".equals(d)) || !("2,1".equals(d)) || !("2,2".equals(d))
-				&& !("2,3".equals(d)) && !("3,1".equals(d)) && !("3,2".equals(d)) && !("3,3".equals(d))
-				&& !("4,1".equals(d)) && !("4,2".equals(d)) && !("4,3".equals(d)) && !("4,4".equals(d))
-				&& !("1".equals(d)) && !("2".equals(d)) && !("3".equals(d)) && !("4".equals(d)) && !("5".equals(d))
-				&& !("6".equals(d)) && !("7".equals(d)) && !("8".equals(d)));
+		// 盤面以外の座標をはじく
+		!("1,1".equals(d)) && !("1,2".equals(d)) && !("1,3".equals(d)) || !("2,1".equals(d))
+				|| !("2,2".equals(d)) && !("2,3".equals(d)) && !("3,1".equals(d)) && !("3,2".equals(d))
+						&& !("3,3".equals(d)) && !("4,1".equals(d)) && !("4,2".equals(d)) && !("4,3".equals(d))
+						&& !("4,4".equals(d)) && !("1".equals(d)) && !("2".equals(d)) && !("3".equals(d))
+						&& !("4".equals(d)) && !("5".equals(d)) && !("6".equals(d)) && !("7".equals(d))
+						&& !("8".equals(d)));
 		System.out.println(d);
 		scanner.close();
-
+		//座標入力を処理しやすい形にする
 		switch (convertPutAfterMoveHand) {
 		case "1,1":
 			convertedPutAfterMoveHand = "0";
@@ -48,7 +46,7 @@ public class MoveHand {
 			convertedPutAfterMoveHand = "2";
 			break;
 		case "2,1":
-			convertedPutAfterMoveHand= "3";
+			convertedPutAfterMoveHand = "3";
 			break;
 		case "2,2":
 			convertedPutAfterMoveHand = "4";
@@ -72,15 +70,17 @@ public class MoveHand {
 			convertedPutAfterMoveHand = "10";
 			break;
 		case "4,3":
-			convertedPutAfterMoveHand=  "11";
+			convertedPutAfterMoveHand = "11";
 			break;
 
-		}System.out.println("convertPutAfterMoveHand"+convertPutAfterMoveHand);
-		System.out.println("convertedPutAfterMoveHand"+convertedPutAfterMoveHand);
+		}
+		System.out.println("convertPutAfterMoveHand" + convertPutAfterMoveHand);
+		System.out.println("convertedPutAfterMoveHand" + convertedPutAfterMoveHand);
 
 	}
 
-	public 	void putBeforeMoveHand() {
+	//駒がどこに移動したいかを入力させる
+	public void putBeforeMoveHand() {
 
 		Scanner scanner = new Scanner(System.in);
 
@@ -90,14 +90,14 @@ public class MoveHand {
 
 		System.out.println("動かしたい駒の座標を入力してください");
 
-		//盤面以外の座標をはじく
+		// 盤面以外の座標をはじく
 		do {
 			System.out.println("盤面の座標もしくは、持ち駒の座標を入力してください");
-			convertPutBeforeMoveHand= scanner.nextLine();
+			convertPutBeforeMoveHand = scanner.nextLine();
 			d = convertPutBeforeMoveHand;
 		} while (
 
-				!("1,1".equals(d)) && !("1,2".equals(d)) && !("1,3".equals(d)) || !("2,1".equals(d)) || !("2,2".equals(d))
+		!("1,1".equals(d)) && !("1,2".equals(d)) && !("1,3".equals(d)) && !("2,1".equals(d)) && !("2,2".equals(d))
 				&& !("2,3".equals(d)) && !("3,1".equals(d)) && !("3,2".equals(d)) && !("3,3".equals(d))
 				&& !("4,1".equals(d)) && !("4,2".equals(d)) && !("4,3".equals(d)) && !("4,4".equals(d))
 				&& !("1".equals(d)) && !("2".equals(d)) && !("3".equals(d)) && !("4".equals(d)) && !("5".equals(d))
@@ -107,7 +107,7 @@ public class MoveHand {
 
 		switch (convertPutBeforeMoveHand) {
 		case "1,1":
-			convertedPutBeforeMoveHand= "0";
+			convertedPutBeforeMoveHand = "0";
 			break;
 		case "1,2":
 			convertedPutBeforeMoveHand = "1";
@@ -116,7 +116,7 @@ public class MoveHand {
 			convertedPutBeforeMoveHand = "2";
 			break;
 		case "2,1":
-			convertedPutBeforeMoveHand= "3";
+			convertedPutBeforeMoveHand = "3";
 			break;
 		case "2,2":
 			convertedPutBeforeMoveHand = "4";
@@ -128,19 +128,19 @@ public class MoveHand {
 			convertedPutBeforeMoveHand = "6";
 			break;
 		case "3,2":
-			convertedPutBeforeMoveHand= "7";
+			convertedPutBeforeMoveHand = "7";
 			break;
 		case "3,3":
-			convertedPutBeforeMoveHand= "8";
+			convertedPutBeforeMoveHand = "8";
 			break;
 		case "4,1":
 			convertedPutBeforeMoveHand = "9";
 			break;
 		case "4,2":
-			convertedPutBeforeMoveHand= "10";
+			convertedPutBeforeMoveHand = "10";
 			break;
 		case "4,3":
-			convertedPutBeforeMoveHand=  "11";
+			convertedPutBeforeMoveHand = "11";
 			break;
 
 		}
@@ -162,6 +162,5 @@ public class MoveHand {
 	public String getConvertedPutBeforeMoveHand() {
 		return convertedPutBeforeMoveHand;
 	}
-
 
 }

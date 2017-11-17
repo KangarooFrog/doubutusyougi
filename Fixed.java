@@ -8,9 +8,6 @@ public class Fixed {
 	private char[] capturedPieceNo = new char[8];
 
 
-
-
-
 	public char[] getCapturedPieceNo() {
 		return capturedPieceNo;
 	}

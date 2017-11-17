@@ -1,7 +1,7 @@
 package doubutusyougi;
 
 import java.util.Random;
-
+//先攻後攻決め
 public class FirstSecond {
 
 	private int fistSecond;

@@ -1,5 +1,5 @@
 package doubutusyougi;
-//初期設定
+//動物将棋開始直後の初期設定
 public class InitialSetting {
 	void doInitialSetting(Fixed fixed,Shogi_board board,Title
 			titleInput,CapturedPiece capturedPiece) {

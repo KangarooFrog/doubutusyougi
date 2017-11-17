@@ -1,5 +1,5 @@
 package doubutusyougi;
-//ゲーム進行
+//ゲーム全体進行
 public class GameProgress {
 	public static void main(String[] args ){
 		InitialSetting iniset = new InitialSetting();

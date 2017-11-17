@@ -1,6 +1,6 @@
 package doubutusyougi;
 
-//タイトル画面
+//タイトル画面の表示 タイトル画面には、プレイヤー名の入力と先攻後攻決めをする
 public class Title {
 
 	void inputNmae(InputPlayerName inputName,FirstSecond firstSecond) {
