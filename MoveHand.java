@@ -15,6 +15,7 @@ public class MoveHand {
 	void putAfterMoveHand() {
 
 		Scanner scanner = new Scanner(System.in);
+		System.out.println();
 		System.out.println("putAfterMoveHandに飛んできているかどうかコメント");
 		String d;
 
