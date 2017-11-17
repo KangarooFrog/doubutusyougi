@@ -1,5 +1,5 @@
 package doubutusyougi;
-//バグの為途中
+
 
 import java.util.Scanner;
 
@@ -27,14 +27,14 @@ public class MoveHand {
 			d = convertPutAfterMoveHand;
 		} while (
 		// 盤面以外の座標をはじく
-		!("1,1".equals(d)) && !("1,2".equals(d)) && !("1,3".equals(d)) || !("2,1".equals(d))
-				|| !("2,2".equals(d)) && !("2,3".equals(d)) && !("3,1".equals(d)) && !("3,2".equals(d))
-						&& !("3,3".equals(d)) && !("4,1".equals(d)) && !("4,2".equals(d)) && !("4,3".equals(d))
-						&& !("4,4".equals(d)) && !("1".equals(d)) && !("2".equals(d)) && !("3".equals(d))
-						&& !("4".equals(d)) && !("5".equals(d)) && !("6".equals(d)) && !("7".equals(d))
-						&& !("8".equals(d)));
+		!("1,1".equals(d)) && !("1,2".equals(d)) && !("1,3".equals(d)) && !("2,1".equals(d))
+		&& !("2,2".equals(d)) && !("2,3".equals(d)) && !("3,1".equals(d)) && !("3,2".equals(d))
+		&& !("3,3".equals(d)) && !("4,1".equals(d)) && !("4,2".equals(d)) && !("4,3".equals(d))
+		&& !("4,4".equals(d)) && !("1".equals(d)) && !("2".equals(d)) && !("3".equals(d))
+		&& !("4".equals(d)) && !("5".equals(d)) && !("6".equals(d)) && !("7".equals(d))
+		&& !("8".equals(d)));
 		System.out.println(d);
-		scanner.close();
+
 		//座標入力を処理しやすい形にする
 		switch (convertPutAfterMoveHand) {
 		case "1,1":
@@ -75,8 +75,8 @@ public class MoveHand {
 			break;
 
 		}
-		System.out.println("convertPutAfterMoveHand" + convertPutAfterMoveHand);
-		System.out.println("convertedPutAfterMoveHand" + convertedPutAfterMoveHand);
+		System.out.println("入力した座標:" + convertPutAfterMoveHand);
+		System.out.println("座標返還後の値:" + convertedPutAfterMoveHand);
 
 	}
 
@@ -104,7 +104,7 @@ public class MoveHand {
 				&& !("1".equals(d)) && !("2".equals(d)) && !("3".equals(d)) && !("4".equals(d)) && !("5".equals(d))
 				&& !("6".equals(d)) && !("7".equals(d)) && !("8".equals(d)));
 		System.out.println(d);
-		scanner.close();
+
 
 		switch (convertPutBeforeMoveHand) {
 		case "1,1":

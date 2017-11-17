@@ -43,7 +43,7 @@ public class InputPlayerName {
 					count2++;
 			}
 		} while (playerName2.length() > 5 || count2 > 0);
-		scanner.close();
+
 	}
 
 	public String getPlayerName1() {
