@@ -9,7 +9,7 @@ public class InputCoordinateProcess {
 			, Discriminant discriminant
 			,CoordinateCiscriminant cCiscriminant) {
 
-System.out.println("変換数値"+discriminant.getEaiResult());
+
 		switch(discriminant.getEaiResult()){
 		case 1:
 			System.out.println("あなたが動かせる駒です。");

@@ -14,13 +14,14 @@ public class Discriminant {
 		if (eai.matches("^[\\u3040-\\u309F]+$")) {
 			System.out.println("1Pひらがなです。");
 			eaiResult = 1;
+
 		} else if (eai.matches("^[\\u30A0-\\u30FF]+$")) {
 			System.out.println("2Pカタカナです。");
 			eaiResult = 2;
 		} else {
 			System.out.println("空白スペース");
 		}
-		eaiResult = 0;
+
 	}
 
 	public int getEaiResult() {

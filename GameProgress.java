@@ -28,7 +28,6 @@ public class GameProgress {
 		//指し手入力
 		moveHand.putAfterMoveHand(moveHand,board,cConversion,discriminant,cCiscriminant);
 
-
 		//入力座標処理
 		inputProcess.inputProcess(moveHand,board,cConversion,discriminant,cCiscriminant);
 
