@@ -70,7 +70,8 @@ public class Drawing {
 			} else {
 				System.out.print(capturedPiece.getPieceInHandRow2()[i]);
 			}
-		}
+		}System.out.println();
+		System.out.println();
 
 	}
 }

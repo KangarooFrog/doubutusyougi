@@ -11,20 +11,28 @@ public class GameProgress {
 		InputPlayerName inputName =new InputPlayerName();
 		FirstSecond firstSecond = new FirstSecond();
 		MoveHand moveHand = new MoveHand ();
-
-
+		CoordinateConversion  cConversion =new CoordinateConversion();
+		InputCoordinateProcess inputProcess = new InputCoordinateProcess();
+		Discriminant discriminant = new Discriminant();
+		CoordinateCiscriminant cCiscriminant = new CoordinateCiscriminant();
 
 		//タイトル画面
-		titleInput.inputNmae(inputName,firstSecond);
+//		titleInput.inputNmae(inputName,firstSecond);
 
 		//初期設定
 		iniset.doInitialSetting(fixed,board,titleInput,capturedPiece);
 
 		//一番最初の描写
-		draw.draw(fixed,board,inputName,capturedPiece);
+//		draw.draw(fixed,board,inputName,capturedPiece);
 
-		//指し手
-		moveHand.putAfterMoveHand();
+		//指し手入力
+		moveHand.putAfterMoveHand(moveHand,board,cConversion,discriminant,cCiscriminant);
+
+
+		//入力座標処理
+		inputProcess.inputProcess(moveHand,board,cConversion,discriminant,cCiscriminant);
+
+
 
 	}
 }

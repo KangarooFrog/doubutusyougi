@@ -1,167 +1,30 @@
 package doubutusyougi;
 
-
 import java.util.Scanner;
 
-//動かしたい駒の座標を打ち込ませる　その後座標を処理しやすい形にする。
+//駒の座標を打ち込ませるだけ
 public class MoveHand {
 
-	private String convertPutAfterMoveHand;
-	private String convertedPutAfterMoveHand;
+	private String convertPutMoveHand;
 
-	private String convertPutBeforeMoveHand;
-	private String convertedPutBeforeMoveHand;
-
-	void putAfterMoveHand() {
-
-		Scanner scanner = new Scanner(System.in);
-		System.out.println();
-		System.out.println("putAfterMoveHandに飛んできているかどうかコメント");
-		String d;
-
+	public void putAfterMoveHand(MoveHand moveHand,Shogi_board board
+			, CoordinateConversion  cConversion
+			, Discriminant discriminant
+			,CoordinateCiscriminant cCiscriminant) {
 		System.out.println("動かしたい駒の座標を入力してください");
 
-		do {
-			System.out.println("盤面の座標もしくは、持ち駒の座標を入力してください");
-			convertPutAfterMoveHand = scanner.nextLine();
-			d = convertPutAfterMoveHand;
-		} while (
-		// 盤面以外の座標をはじく
-		!("1,1".equals(d)) && !("1,2".equals(d)) && !("1,3".equals(d)) && !("2,1".equals(d))
-		&& !("2,2".equals(d)) && !("2,3".equals(d)) && !("3,1".equals(d)) && !("3,2".equals(d))
-		&& !("3,3".equals(d)) && !("4,1".equals(d)) && !("4,2".equals(d)) && !("4,3".equals(d))
-		&& !("4,4".equals(d)) && !("1".equals(d)) && !("2".equals(d)) && !("3".equals(d))
-		&& !("4".equals(d)) && !("5".equals(d)) && !("6".equals(d)) && !("7".equals(d))
-		&& !("8".equals(d)));
-		System.out.println(d);
-
-		//座標入力を処理しやすい形にする
-		switch (convertPutAfterMoveHand) {
-		case "1,1":
-			convertedPutAfterMoveHand = "0";
-			break;
-		case "1,2":
-			convertedPutAfterMoveHand = "1";
-			break;
-		case "1,3":
-			convertedPutAfterMoveHand = "2";
-			break;
-		case "2,1":
-			convertedPutAfterMoveHand = "3";
-			break;
-		case "2,2":
-			convertedPutAfterMoveHand = "4";
-			break;
-		case "2,3":
-			convertedPutAfterMoveHand = "5";
-			break;
-		case "3,1":
-			convertedPutAfterMoveHand = "6";
-			break;
-		case "3,2":
-			convertedPutAfterMoveHand = "7";
-			break;
-		case "3,3":
-			convertedPutAfterMoveHand = "8";
-			break;
-		case "4,1":
-			convertedPutAfterMoveHand = "9";
-			break;
-		case "4,2":
-			convertedPutAfterMoveHand = "10";
-			break;
-		case "4,3":
-			convertedPutAfterMoveHand = "11";
-			break;
-
-		}
-		System.out.println("入力した座標:" + convertPutAfterMoveHand);
-		System.out.println("座標返還後の値:" + convertedPutAfterMoveHand);
-
-	}
-
-	//駒がどこに移動したいかを入力させる
-	public void putBeforeMoveHand() {
-
 		Scanner scanner = new Scanner(System.in);
+		convertPutMoveHand = scanner.next();
 
-		String d;
-
-		convertPutBeforeMoveHand = scanner.nextLine();
-
-		System.out.println("動かしたい駒の座標を入力してください");
-
-		// 盤面以外の座標をはじく
-		do {
-			System.out.println("盤面の座標もしくは、持ち駒の座標を入力してください");
-			convertPutBeforeMoveHand = scanner.nextLine();
-			d = convertPutBeforeMoveHand;
-		} while (
-
-		!("1,1".equals(d)) && !("1,2".equals(d)) && !("1,3".equals(d)) && !("2,1".equals(d)) && !("2,2".equals(d))
-				&& !("2,3".equals(d)) && !("3,1".equals(d)) && !("3,2".equals(d)) && !("3,3".equals(d))
-				&& !("4,1".equals(d)) && !("4,2".equals(d)) && !("4,3".equals(d)) && !("4,4".equals(d))
-				&& !("1".equals(d)) && !("2".equals(d)) && !("3".equals(d)) && !("4".equals(d)) && !("5".equals(d))
-				&& !("6".equals(d)) && !("7".equals(d)) && !("8".equals(d)));
-		System.out.println(d);
-
-
-		switch (convertPutBeforeMoveHand) {
-		case "1,1":
-			convertedPutBeforeMoveHand = "0";
-			break;
-		case "1,2":
-			convertedPutBeforeMoveHand = "1";
-			break;
-		case "1,3":
-			convertedPutBeforeMoveHand = "2";
-			break;
-		case "2,1":
-			convertedPutBeforeMoveHand = "3";
-			break;
-		case "2,2":
-			convertedPutBeforeMoveHand = "4";
-			break;
-		case "2,3":
-			convertedPutBeforeMoveHand = "5";
-			break;
-		case "3,1":
-			convertedPutBeforeMoveHand = "6";
-			break;
-		case "3,2":
-			convertedPutBeforeMoveHand = "7";
-			break;
-		case "3,3":
-			convertedPutBeforeMoveHand = "8";
-			break;
-		case "4,1":
-			convertedPutBeforeMoveHand = "9";
-			break;
-		case "4,2":
-			convertedPutBeforeMoveHand = "10";
-			break;
-		case "4,3":
-			convertedPutBeforeMoveHand = "11";
-			break;
-
-		}
-
+		//指して座標が本当に盤面に存在するか判定
+		cCiscriminant.cCiscriminant(moveHand, board,cConversion,discriminant,cCiscriminant);
 	}
 
-	public String getConvertPutAfterMoveHand() {
-		return convertPutAfterMoveHand;
+	public String getConvertPutMoveHand() {
+		return convertPutMoveHand;
 	}
 
-	public String getConvertedPutAfterMoveHand() {
-		return convertedPutAfterMoveHand;
+	public void setConvertPutMoveHand(String convertPutMoveHand) {
+		this.convertPutMoveHand = convertPutMoveHand;
 	}
-
-	public String getConvertPutBeforeMoveHand() {
-		return convertPutBeforeMoveHand;
-	}
-
-	public String getConvertedPutBeforeMoveHand() {
-		return convertedPutBeforeMoveHand;
-	}
-
 }
