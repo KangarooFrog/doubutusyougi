@@ -7,7 +7,8 @@ public class CoordinateCiscriminant {
 			,Shogi_board board
 			,CoordinateConversion  cConversion
 			,Discriminant discriminant
-			,CoordinateCiscriminant cCiscriminant) {
+			,CoordinateCiscriminant cCiscriminant
+			,MoveHandProcess moveHandProcess) {
 		String d = moveHand.getConvertPutMoveHand();
 		// 盤面以外の座標をはじく
 	if (("1,1".equals(d)||("1,2".equals(d)|| ("1,3".equals(d)) || ("2,1".equals(d)) || ("2,2".equals(d))
@@ -18,11 +19,11 @@ public class CoordinateCiscriminant {
 				 {
 			System.out.println("正常座標"+d);
 			//座標変換
-			cConversion.cConversion(moveHand,board,cConversion,discriminant);
+			cConversion.cConversion(moveHand,board,cConversion,discriminant,moveHandProcess);
 				 }
 			else {
 			System.out.println("不正座標:"+d);
-			moveHand.putAfterMoveHand(moveHand, board,cConversion,discriminant,cCiscriminant);
+			moveHand.putAfterMoveHand(moveHand, board,cConversion,discriminant,cCiscriminant,moveHandProcess);
 		}
 	}
 

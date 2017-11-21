@@ -8,7 +8,12 @@ public class FirstSecond {
 
 	public int decideFirstSecont() {
 		Random random = new Random();
-		fistSecond = random.nextInt(2) + 1;
+		//fistSecond = random.nextInt(2) + 1;
+		fistSecond =1;
+		return fistSecond;
+	}
+
+	public int getFistSecond() {
 		return fistSecond;
 	}
 }

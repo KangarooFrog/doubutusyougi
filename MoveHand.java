@@ -10,14 +10,15 @@ public class MoveHand {
 	public void putAfterMoveHand(MoveHand moveHand,Shogi_board board
 			, CoordinateConversion  cConversion
 			, Discriminant discriminant
-			,CoordinateCiscriminant cCiscriminant) {
+			,CoordinateCiscriminant cCiscriminant
+			,MoveHandProcess moveHandProcess) {
 		System.out.println("動かしたい駒の座標を入力してください");
 
 		Scanner scanner = new Scanner(System.in);
 		convertPutMoveHand = scanner.next();
 
 		//指して座標が本当に盤面に存在するか判定
-		cCiscriminant.cCiscriminant(moveHand, board,cConversion,discriminant,cCiscriminant);
+		cCiscriminant.cCiscriminant(moveHand, board,cConversion,discriminant,cCiscriminant,moveHandProcess);
 	}
 
 	public String getConvertPutMoveHand() {

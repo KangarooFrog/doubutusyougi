@@ -1,51 +1,62 @@
 package doubutusyougi;
 //座標変換
 public class CoordinateConversion {
-
-	private int moveHandConversion;
+	//フィールドにプリミティブ型の変数が初期値をしていいない場合は、0で入るよ
+	//参照型はnullが入るよ
+	//移動元は、moveHandConversion[0]
+	//移動先は、moveHandConversion[1]
+	private int[] moveHandConversion = new int[2];
+	//持ち駒用
 	private int PossessionMoveHandConversion;
+	//指し手をカウントする
+	private int  inputMoveHandCount= 0;
 
 	//座標入力を処理しやすい形にする
 
-	public void cConversion(MoveHand moveHand,Shogi_board board,CoordinateConversion cConversion,Discriminant discriminant ) {
-
+	public void cConversion(MoveHand moveHand,Shogi_board board,CoordinateConversion cConversion,Discriminant discriminant,MoveHandProcess moveHandProcess ) {
+		int i=0;
+		//移動元を入力したかどうか
+	if(moveHandProcess.getMoveHandCount()==1) {
+		inputMoveHandCount=1;
+	}
+	i=inputMoveHandCount;
 	switch (moveHand.getConvertPutMoveHand()) {
 	case "1,1":
-		moveHandConversion=0;
+		moveHandConversion[i]=0;
 		System.out.println("int型に変換されました:"+moveHand.getConvertPutMoveHand());
 		break;
 	case "1,2":
-		moveHandConversion=1;
+		moveHandConversion[i]=1;
 		break;
 	case "1,3":
-		moveHandConversion=2;
+		moveHandConversion[i]=2;
 		break;
 	case "2,1":
-		moveHandConversion=3;
+		moveHandConversion[i]=3;
 		break;
 	case "2,2":
-		moveHandConversion=4;
+		moveHandConversion[i]=4;
 		break;
 	case "2,3":
-		moveHandConversion=5;
+		moveHandConversion[i]=5;
 		break;
 	case "3,1":
-		moveHandConversion=6;
+		moveHandConversion[i]=6;
 		break;
 	case "3,2":
-		moveHandConversion=7;
+		moveHandConversion[i]=7;
 		break;
 	case "3,3":
-		moveHandConversion=8;
+		moveHandConversion[i]=8;
 		break;
 	case "4,1":
-		moveHandConversion=9;
+		moveHandConversion[i]=9;
 		break;
 	case "4,2":
-		moveHandConversion=10;
+		moveHandConversion[i]=10;
 		break;
 	case "4,3":
-		moveHandConversion=11;
+		moveHandConversion[i]=11;
 		break;
 //取った駒の座標変換
 	case "1":
@@ -75,7 +86,7 @@ public class CoordinateConversion {
 	}
 
 	//座標に何があるか判定
-	discriminant.discriminant(moveHand,board,cConversion );
+	discriminant.discriminant(moveHand,board,cConversion);
 
 	}
 
@@ -83,7 +94,14 @@ public class CoordinateConversion {
 		return PossessionMoveHandConversion;
 	}
 
-	public int getMoveHandConversion() {
+	public int[] getMoveHandConversion() {
 		return moveHandConversion;
 	}
+
+	public int getInputMoveHandCount() {
+		return inputMoveHandCount;
+	}
+
+
+
 }
