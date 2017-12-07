@@ -3,8 +3,8 @@ package doubutusyougi;
 public class CoordinateConversion {
 	//フィールドにプリミティブ型の変数が初期値をしていいない場合は、0で入るよ
 	//参照型はnullが入るよ
-	//移動元は、moveHandConversion[0]
-	//移動先は、moveHandConversion[1]
+	//移動元座標変換後に、moveHandConversion[0]
+	//移動先座標変換後に、moveHandConversion[1]
 	private int[] moveHandConversion = new int[2];
 	//持ち駒用
 	private int PossessionMoveHandConversion;

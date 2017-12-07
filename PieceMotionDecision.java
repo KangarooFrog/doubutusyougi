@@ -7,6 +7,7 @@ public class PieceMotionDecision {
 	// メソッドの中身は、入力された移動元の駒の種類を判別して、駒ごとに、
 	// 動けるかどうかを判定する。
 	public Boolean determineMotionPiece(CoordinateConversion cConversion, Shogi_board board) {
+		System.out.println("駒チェックメソッド起動");
 		Boolean determineMotionPiece = null;
 
 		Chick chick = new Chick();

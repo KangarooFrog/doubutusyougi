@@ -15,39 +15,34 @@ public class GameProgress {
 		CoordinateConversion cConversion = new CoordinateConversion();
 		Discriminant discriminant = new Discriminant();
 		CoordinateCiscriminant cCiscriminant = new CoordinateCiscriminant();
-		MoveHandProcess moveHandProcess =new MoveHandProcess();
+		MoveHandProcess moveHandProcess = new MoveHandProcess();
 
 		// タイトル画面
-		 titleInput.inputNmae(inputName,firstSecond);
+		titleInput.inputNmae(inputName, firstSecond);
 
 		// 初期設定
 		iniset.doInitialSetting(fixed, board, titleInput, capturedPiece);
 
 		// 一番最初の描写
-		 draw.draw(fixed,board,inputName,capturedPiece);
+		draw.draw(fixed, board, inputName, capturedPiece);
 
-	//	入力座標(移動したい駒)をどう処理するか判断する入力してほしくないものなら入力ループ
-		moveHandProcess.moveFormerHandProcess(moveHand
-											, board
-											, cConversion
-											, discriminant
-											, cCiscriminant
-											, firstSecond
-											, moveHandProcess);
+		// 入力座標(移動したい駒)をどう処理するか判断する入力してほしくないものなら入力ループ
+		moveHandProcess.moveFormerHandProcess(
+				moveHand,
+				board, cConversion,
+				discriminant,
+				cCiscriminant,
+				firstSecond,
+				moveHandProcess);
 
-		//入力座標(移動先の座標)をどう処理するか判断する　入力してほしくないものなら入力ループ
+	//	 入力座標(移動先の座標)をどう処理するか判断する 入力してほしくないものなら入力ループ
 
-		moveHandProcess.moveTargetHandProcess(moveHand
-											, board
-											, cConversion
-											, discriminant
-											, cCiscriminant
-											,moveHandProcess);
-
-
-
-
-
-	}
-
+		 moveHandProcess.moveTargetHandProcess(moveHand
+		 , board
+		 , cConversion
+		 , discriminant
+		 , cCiscriminant
+		 , firstSecond
+		 ,moveHandProcess);
+		 }
 }

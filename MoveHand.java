@@ -12,7 +12,7 @@ public class MoveHand {
 			, Discriminant discriminant
 			,CoordinateCiscriminant cCiscriminant
 			,MoveHandProcess moveHandProcess) {
-		System.out.println("動かしたい駒の座標を入力してください");
+
 
 		Scanner scanner = new Scanner(System.in);
 		convertPutMoveHand = scanner.next();
