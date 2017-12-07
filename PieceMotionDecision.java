@@ -15,7 +15,7 @@ public class PieceMotionDecision {
 				|| board.getBoard()[cConversion.getMoveHandConversion()[0]] == "ヒ") {
 
 			determineMotionPiece = chick.discriminantMovableChicken(cConversion, board);
-
+			System.out.println(determineMotionPiece);
 		}
 
 		return determineMotionPiece;

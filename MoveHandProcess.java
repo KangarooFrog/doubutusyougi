@@ -61,6 +61,7 @@ public class MoveHandProcess {
 
 		PieceMotionDecision pieceMotionDecision= new PieceMotionDecision();
 
+		boolean pM = false;
 		//プレイヤー1、プレイヤー2どちらが先行でも処理できるように改善
 		//プレイヤー1ひらがなが、先攻の場合
 		if(firstSecond.getFistSecond() == 1 ) {
@@ -79,7 +80,7 @@ public class MoveHandProcess {
 		}
 
 		int count = 0;
-		do {
+		for(;;) {
 			count++;
 			if (count > 1) {
 				System.out.println("移動できません。");
@@ -91,8 +92,14 @@ public class MoveHandProcess {
 			moveHand.putAfterMoveHand(moveHand, board, cConversion, discriminant, cCiscriminant,moveHandProcess);
 
 
-		} while (!(discriminant.getEaiResult() == fs)
-				&&pieceMotionDecision.determineMotionPiece(cConversion, board)==true);
+
+			if (discriminant.getEaiResult() == fs)
+			{
+				pM=pieceMotionDecision.determineMotionPiece(cConversion, board);
+				//System.out.println(pM);
+			}
+			if(pM)break;
+		}
 
 		System.out.println("移動します。");
 
