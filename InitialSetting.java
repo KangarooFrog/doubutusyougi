@@ -7,8 +7,8 @@ public class InitialSetting {
 		String[] boardLineIni = new String[4];
 		char[] boardArrayIni = new char[4];
 		String[] boardIni = new String[12];
-		char[] pieceInHandIni =new char[9];
-		char[] pieceInHandIni2 =new char[9];
+		String[] pieceInHandIni =new String[9];
+		String[] pieceInHandIni2 =new String[9];
 		char[] capturedPieceNo =new char[9];
 
 
@@ -49,12 +49,12 @@ public class InitialSetting {
 
 
 		for(int i=0; i<9; i++) {
-			pieceInHandIni[i] = 'き';
+			pieceInHandIni[i] = "　";
 		}
 		//pieceInHandIni[4] ='　';
 
 		for(int i=0; i<9; i++) {
-			pieceInHandIni2[i] = 'ゾ';
+			pieceInHandIni2[i] = "　";
 		}
 		//pieceInHandIni2[4] ='　';
 
@@ -62,7 +62,7 @@ public class InitialSetting {
 		fixed.setBoardLineNo(boardLineIni);
 		fixed.setBoardArrayNo(boardArrayIni);
 		board.setBoard(boardIni);
-		capturedPiece.setPieceInHandRow(pieceInHandIni);
+		capturedPiece.setPieceInHandRow1(pieceInHandIni);
 		capturedPiece.setPieceInHandRow2(pieceInHandIni2);
 		fixed.setCapturedPieceNo(capturedPieceNo);
 

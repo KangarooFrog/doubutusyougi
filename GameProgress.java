@@ -16,6 +16,8 @@ public class GameProgress {
 		Discriminant discriminant = new Discriminant();
 		CoordinateCiscriminant cCiscriminant = new CoordinateCiscriminant();
 		MoveHandProcess moveHandProcess = new MoveHandProcess();
+		BoardUpdata boardUpdata = new BoardUpdata();
+		GameDecsion gameDecsion = new GameDecsion();
 
 		// タイトル画面
 		titleInput.inputNmae(inputName, firstSecond);
@@ -26,23 +28,33 @@ public class GameProgress {
 		// 一番最初の描写
 		draw.draw(fixed, board, inputName, capturedPiece);
 
+
+
+	while(gameDecsion.getgameDecsion()){
+
 		// 入力座標(移動したい駒)をどう処理するか判断する入力してほしくないものなら入力ループ
-		moveHandProcess.moveFormerHandProcess(
-				moveHand,
-				board, cConversion,
-				discriminant,
-				cCiscriminant,
-				firstSecond,
+		moveHandProcess.moveFormerHandProcess(moveHand, board, cConversion, discriminant, cCiscriminant, firstSecond,
 				moveHandProcess);
 
-	//	 入力座標(移動先の座標)をどう処理するか判断する 入力してほしくないものなら入力ループ
+		// 入力座標(移動先の座標)をどう処理するか判断する 入力してほしくないものなら入力ループ
+		moveHandProcess.moveTargetHandProcess(moveHand, board, cConversion, discriminant, cCiscriminant, firstSecond,
+				moveHandProcess);
 
-		 moveHandProcess.moveTargetHandProcess(moveHand
-		 , board
-		 , cConversion
-		 , discriminant
-		 , cCiscriminant
-		 , firstSecond
-		 ,moveHandProcess);
-		 }
+		// 入力した座標を盤面に反映させる
+		// 持ち駒も更新
+
+		boardUpdata.boardUpdata(firstSecond, cConversion, board, capturedPiece);
+
+		// 盤面更新と持ち駒を更新
+		draw.draw(fixed, board, inputName, capturedPiece);
+
+		// lionがとられたかどうか（勝負が決まったかどうか)
+		gameDecsion.gameDecsion(capturedPiece);
+
+	}
+
+
+
+
+	}
 }

@@ -58,7 +58,7 @@ public class CoordinateConversion {
 	case "4,3":
 		moveHandConversion[i]=11;
 		break;
-//取った駒の座標変換
+//取った駒の座標変換(持ち駒）
 	case "1":
 		PossessionMoveHandConversion=12;
 		break;

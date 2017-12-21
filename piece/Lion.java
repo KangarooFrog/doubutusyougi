@@ -1,5 +1,39 @@
 package doubutusyougi.piece;
 
-public class Lion {
+import doubutusyougi.CoordinateConversion;
+import doubutusyougi.Shogi_board;
 
+public class Lion {
+	public Boolean discriminantMovableLion(CoordinateConversion cConversion, Shogi_board board) {
+
+		Boolean tureFalse = false;
+
+		// 移動元の駒がひらがなの場合
+		if (board.getBoard()[cConversion.getMoveHandConversion()[0]].matches("^[\\u3040-\\u309F]+$")
+				||board.getBoard()[cConversion.getMoveHandConversion()[0]].matches("^[\\u30A0-\\u30FF]+$")) {
+
+			int test =cConversion.getMoveHandConversion()[1] - cConversion.getMoveHandConversion()[0];
+			System.out.println("ライオンの計算"+test);
+
+
+			if (cConversion.getMoveHandConversion()[1] - cConversion.getMoveHandConversion()[0] == -4
+					||cConversion.getMoveHandConversion()[1] - cConversion.getMoveHandConversion()[0] == -3
+					||cConversion.getMoveHandConversion()[1] - cConversion.getMoveHandConversion()[0] == -2
+					||cConversion.getMoveHandConversion()[1] - cConversion.getMoveHandConversion()[0] == -1
+					||cConversion.getMoveHandConversion()[1] - cConversion.getMoveHandConversion()[0] == +1
+					||cConversion.getMoveHandConversion()[1] - cConversion.getMoveHandConversion()[0] == +2
+					||cConversion.getMoveHandConversion()[1] - cConversion.getMoveHandConversion()[0] == +3
+					||cConversion.getMoveHandConversion()[1] - cConversion.getMoveHandConversion()[0] == -4) {
+
+				tureFalse = true;
+
+				System.out.println("らいおんは移動する");
+			} else {
+				System.out.println("移動できない");
+				tureFalse = false;
+			}
+		}
+		//System.out.println(tureFalse);
+		return tureFalse;
+	}
 }

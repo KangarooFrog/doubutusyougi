@@ -3,7 +3,7 @@ package doubutusyougi;
 
 public class MoveHandProcess {
 
-	private int fs=0;
+	private int second_flag=0;
 	private int moveHandCount=0;
 
 	//移動元座標処理
@@ -16,14 +16,14 @@ public class MoveHandProcess {
 			 ,MoveHandProcess moveHandProcess){
 
 
-		//プレイヤー1、プレイヤー2どちらが先行でも処理できるように改善
+		//他のクラスで定義した方がよかった
 		//プレイヤー1ひらがなが、先攻の場合
 		if(firstSecond.getFistSecond() == 1 ) {
-			fs=1;
+			second_flag=1;
 		}
 		//プレイヤー2カタカナが、先攻の場合
 		else if(firstSecond.getFistSecond() == 2) {
-			fs=2;
+			second_flag=2;
 		}
 		else {
 			System.out.println("値:1、プレイヤー１が先行");
@@ -44,7 +44,7 @@ public class MoveHandProcess {
 				// 指し手入力
 				System.out.println("動かしたい駒の座標を入力してください");
 				moveHand.putAfterMoveHand(moveHand, board, cConversion, discriminant, cCiscriminant,moveHandProcess);
-				} while (!(discriminant.getEaiResult() == fs));
+				} while (!(discriminant.getEaiResult() == second_flag));
 				System.out.println("入力した座標の駒は、移動できます");
 				moveHandCount++;
 	 }
@@ -65,11 +65,11 @@ public class MoveHandProcess {
 		//プレイヤー1、プレイヤー2どちらが先行でも処理できるように改善
 		//プレイヤー1ひらがなが、先攻の場合
 		if(firstSecond.getFistSecond() == 1 ) {
-			fs=2;
+			second_flag=2;
 		}
 		//プレイヤー2カタカナが、先攻の場合
 		else if(firstSecond.getFistSecond() == 2) {
-			fs=1;
+			second_flag=1;
 		}
 
 		else {
@@ -92,9 +92,12 @@ public class MoveHandProcess {
 			moveHand.putAfterMoveHand(moveHand, board, cConversion, discriminant, cCiscriminant,moveHandProcess);
 
 
-
-			if (discriminant.getEaiResult() == fs)
+			//System.out.println(second_flag);
+			// 1 ひらがな 2カタカナ 3空白 4エラー
+			if (discriminant.getEaiResult() == second_flag
+					|| discriminant.getEaiResult() ==3)
 			{
+				//駒が動けるかどうか判定
 				pM=pieceMotionDecision.determineMotionPiece(cConversion, board);
 				//System.out.println(pM);
 			}

@@ -1,6 +1,10 @@
 package doubutusyougi;
 
-import doubutusyougi.piece.Chick;
+import doubutusyougi.piece.Chic;
+import doubutusyougi.piece.Chicken;
+import doubutusyougi.piece.Elephant;
+import doubutusyougi.piece.Giraffe;
+import doubutusyougi.piece.Lion;
 
 public class PieceMotionDecision {
 	// 移動できない時は、flseで返して、移動できるときは、tureで返すようにしたい
@@ -10,17 +14,39 @@ public class PieceMotionDecision {
 		System.out.println("駒チェックメソッド起動");
 		Boolean determineMotionPiece = null;
 
-		Chick chick = new Chick();
-		if (board.getBoard()[cConversion.getMoveHandConversion()[0]] == "ひ"
-				|| board.getBoard()[cConversion.getMoveHandConversion()[0]] == "ヒ") {
+		Chic chic = new Chic();
+		Chicken chicken=new Chicken();
+		Elephant elephant = new Elephant();
+		Giraffe giraffe = new Giraffe();
+		Lion lion =new Lion();
 
-			determineMotionPiece = chick.discriminantMovableChicken(cConversion, board);
-			System.out.println(determineMotionPiece);
+
+
+		switch(board.getBoard()[cConversion.getMoveHandConversion()[0]]) {
+		case "ひ":
+		case "ヒ":
+			determineMotionPiece = chic.discriminantMovableChic(cConversion, board);
+			break;
+		case "ぞ":
+		case "ゾ":
+			determineMotionPiece =  elephant.discriminantMovableElephant(cConversion, board);
+			break;
+		case "き":
+		case "キ":
+			determineMotionPiece =giraffe.discriminantMovableGiraffe(cConversion, board);
+			break;
+		case "ら":
+		case "ラ":
+			determineMotionPiece = lion.discriminantMovableLion(cConversion, board);
+			break;
+		case "に":
+		case "二":
+			determineMotionPiece = chicken.discriminantMovableChicken(cConversion, board);
+			break;
+
 		}
-
 		return determineMotionPiece;
 
-		// 仮 MoveHandProcessから読んでるマン
 	}
 
 }
