@@ -22,6 +22,7 @@ public class MoveHand {
 	}
 
 	public String getConvertPutMoveHand() {
+
 		return convertPutMoveHand;
 	}
 
