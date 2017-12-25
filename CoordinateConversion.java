@@ -12,76 +12,67 @@ public class CoordinateConversion {
 	// 指し手をカウントする
 	private int inputMoveHandCount = 0;
 	// 座標入力を処理しやすい形にする
+	private int i=0;
 
 	public void cConversion(MoveHand moveHand, Shogi_board board, CoordinateConversion cConversion,
-			Discriminant discriminant, MoveHandProcess moveHandProcess) {
+			Discriminant discriminant, MoveHandProcess moveHandProcess , CapturedPiece capturedPiece) {
 
 
 		// 移動元を入力したかどうか
-
-
-
-		int i = 0;
-
 		if (i==0 ||i%2==0) {
 			inputMoveHandCount = 0;
 		}else if(i==1 || i%2==1){
 			inputMoveHandCount = 1;
 		}else {System.out.println("0or1以外が入ってきた");}
+		i++;
 
 		System.out.println("座標表示:" + moveHand.getConvertPutMoveHand());
 		switch (moveHand.getConvertPutMoveHand()) {
 		case "1,1":
-			moveHandConversion[i] = 0;
-			i++;
+			moveHandConversion[inputMoveHandCount] = 0;
 			break;
 		case "1,2":
-			moveHandConversion[i] = 1;
-			i++;
+			moveHandConversion[inputMoveHandCount] = 1;
 			break;
 		case "1,3":
-			moveHandConversion[i] = 2;
-			i++;
+			moveHandConversion[inputMoveHandCount] = 2;
 			break;
 		case "2,1":
-			moveHandConversion[i] = 3;
-			i++;
+			moveHandConversion[inputMoveHandCount] = 3;
 			break;
 		case "2,2":
-			moveHandConversion[i] = 4;
-			i++;
+			moveHandConversion[inputMoveHandCount] = 4;
+			System.out.println("i="+i);
+			System.out.println(moveHandConversion[0] );
+			System.out.println(moveHandConversion[1] );
 			break;
 		case "2,3":
-			moveHandConversion[i] = 5;
-			i++;
+			moveHandConversion[inputMoveHandCount] = 5;
 			break;
 		case "3,1":
-			moveHandConversion[i] = 6;
-			i++;
+			moveHandConversion[inputMoveHandCount] = 6;
 			break;
 		case "3,2":
-			moveHandConversion[i] = 7;
+			moveHandConversion[inputMoveHandCount] = 7;
 			System.out.println("通っているか");
 			System.out.println("i="+i);
 			System.out.println(moveHandConversion[0] );
 			System.out.println(moveHandConversion[1] );
-			i++;
 			break;
 		case "3,3":
-			moveHandConversion[i] = 8;
-			i++;
+			moveHandConversion[inputMoveHandCount] = 8;
 			break;
 		case "4,1":
-			moveHandConversion[i] = 9;
-			i++;
+			moveHandConversion[inputMoveHandCount] = 9;
 			break;
 		case "4,2":
-			moveHandConversion[i] = 10;
-			i++;
+			moveHandConversion[inputMoveHandCount] = 10;
+			System.out.println("i="+i);
+			System.out.println(moveHandConversion[0] );
+			System.out.println(moveHandConversion[1] );
 			break;
 		case "4,3":
-			moveHandConversion[i] = 11;
-			i++;
+			moveHandConversion[inputMoveHandCount] = 11;
 			break;
 		// 取った駒の座標変換(持ち駒）
 		case "1":
@@ -111,7 +102,7 @@ public class CoordinateConversion {
 		}
 
 		// 座標に何があるか判定
-		discriminant.discriminant(moveHand, board, cConversion);
+		discriminant.discriminant(moveHand, board, cConversion ,capturedPiece);
 
 	}
 

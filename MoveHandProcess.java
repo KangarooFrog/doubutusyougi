@@ -8,7 +8,7 @@ public class MoveHandProcess {
 	// 移動元座標処理
 	public void moveFormerHandProcess(MoveHand moveHand, Shogi_board board, CoordinateConversion cConversion,
 			Discriminant discriminant, CoordinateCiscriminant cCiscriminant, FirstSecond firstSecond,
-			MoveHandProcess moveHandProcess) {
+			MoveHandProcess moveHandProcess,CapturedPiece capturedPiece) {
 
 		// 他のクラスで定義した方がよかった
 		// プレイヤー1ひらがなが、先攻の場合
@@ -38,10 +38,8 @@ public class MoveHandProcess {
 				System.out.println("もう一度入力してください");
 			}
 
-			moveHand.putAfterMoveHand(moveHand, board, cConversion, discriminant, cCiscriminant, moveHandProcess);
-			if (discriminant.getEaiResult() == second_flag
-					|| discriminant.getEaiResult() == 3
-					|| discriminant.getEaiResult() == 4) {
+			moveHand.putAfterMoveHand(moveHand, board, cConversion, discriminant, cCiscriminant, moveHandProcess,capturedPiece);
+			if (discriminant.getEaiResult() == second_flag) {
 				break outside1;
 			}
 		}
@@ -52,7 +50,7 @@ public class MoveHandProcess {
 	// 移動先座標処理
 	public void moveTargetHandProcess(MoveHand moveHand, Shogi_board board, CoordinateConversion cConversion,
 			Discriminant discriminant, CoordinateCiscriminant cCiscriminant, FirstSecond firstSecond,
-			MoveHandProcess moveHandProcess) {
+			MoveHandProcess moveHandProcess ,CapturedPiece capturedPiece) {
 
 		PieceMotionDecision pieceMotionDecision = new PieceMotionDecision();
 
@@ -84,7 +82,16 @@ public class MoveHandProcess {
 
 			System.out.println("駒の移動先を座標で入力してください");
 			// 指し手入力
-			moveHand.putAfterMoveHand(moveHand, board, cConversion, discriminant, cCiscriminant, moveHandProcess);
+			moveHand.putAfterMoveHand(
+					moveHand
+					, board
+					, cConversion
+					, discriminant
+					, cCiscriminant
+					,moveHandProcess
+					,capturedPiece
+
+					);
 
 			// System.out.println(second_flag);
 			// 1 ひらがな 2カタカナ 3空白 4エラー

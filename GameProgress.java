@@ -18,6 +18,7 @@ public class GameProgress {
 		MoveHandProcess moveHandProcess = new MoveHandProcess();
 		BoardUpdata boardUpdata = new BoardUpdata();
 		GameDecsion gameDecsion = new GameDecsion();
+		Turn_change turn_change = new Turn_change();
 
 		// タイトル画面
 		titleInput.inputNmae(inputName, firstSecond);
@@ -33,11 +34,11 @@ public class GameProgress {
 
 				// 入力座標(移動したい駒)をどう処理するか判断する入力してほしくないものなら入力ループ
 				moveHandProcess.moveFormerHandProcess(moveHand, board, cConversion, discriminant, cCiscriminant,
-						firstSecond, moveHandProcess);
+						firstSecond, moveHandProcess, capturedPiece);
 
 				// 入力座標(移動先の座標)をどう処理するか判断する 入力してほしくないものなら入力ループ
 				moveHandProcess.moveTargetHandProcess(moveHand, board, cConversion, discriminant, cCiscriminant,
-						firstSecond, moveHandProcess);
+						firstSecond, moveHandProcess, capturedPiece);
 
 				// 入力した座標を盤面に反映させる
 				// 持ち駒も更新
@@ -52,10 +53,15 @@ public class GameProgress {
 				if (gameDecsion.getgameDecsion() == true) {
 					break gameoutside;
 				}
+				//内手の順番替え
+				turn_change.turnChange(firstSecond);
+
 			}
 		}
 
-		System.out.println("お疲れ様です。");
+		System.out.println("lionが取られました。");
+		System.out.println("ゲーム終了です。");
+		System.out.println("お疲れ様でした。");
 
 	}
 }
