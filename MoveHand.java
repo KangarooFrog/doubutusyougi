@@ -14,14 +14,16 @@ public class MoveHand {
 			, Discriminant discriminant
 			,CoordinateCiscriminant cCiscriminant
 			,MoveHandProcess moveHandProcess
-			,CapturedPiece capturedPiece) {
+			,CapturedPiece capturedPiece
+			,FirstSecond firstSecond
+			) {
 
 
 		Scanner scanner = new Scanner(System.in);
 		convertPutMoveHand = scanner.next();
 
 		//指して座標が本当に盤面に存在するか判定
-		cCiscriminant.cCiscriminant(moveHand, board,cConversion,discriminant,cCiscriminant,moveHandProcess,capturedPiece);
+		cCiscriminant.cCiscriminant(moveHand, board,cConversion,discriminant,cCiscriminant,moveHandProcess,capturedPiece,firstSecond);
 	}
 
 	public String getConvertPutMoveHand() {

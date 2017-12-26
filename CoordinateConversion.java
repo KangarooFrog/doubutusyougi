@@ -7,15 +7,15 @@ public class CoordinateConversion {
 	// 移動元座標変換後に、moveHandConversion[0]
 	// 移動先座標変換後に、moveHandConversion[1]
 	private int[] moveHandConversion = new int[2];
-	// 持ち駒用
-	private int PossessionMoveHandConversion;
+
 	// 指し手をカウントする
 	private int inputMoveHandCount = 0;
 	// 座標入力を処理しやすい形にする
 	private int i=0;
 
 	public void cConversion(MoveHand moveHand, Shogi_board board, CoordinateConversion cConversion,
-			Discriminant discriminant, MoveHandProcess moveHandProcess , CapturedPiece capturedPiece) {
+			Discriminant discriminant, MoveHandProcess moveHandProcess , CapturedPiece capturedPiece,FirstSecond firstSecond
+			) {
 
 
 		// 移動元を入力したかどうか
@@ -76,39 +76,37 @@ public class CoordinateConversion {
 			break;
 		// 取った駒の座標変換(持ち駒）
 		case "1":
-			PossessionMoveHandConversion = 12;
+			moveHandConversion[inputMoveHandCount] =12;
 			break;
 		case "2":
-			PossessionMoveHandConversion = 13;
+			moveHandConversion[inputMoveHandCount] =13;
 			break;
 		case "3":
-			PossessionMoveHandConversion = 14;
+			moveHandConversion[inputMoveHandCount] =14;
 			break;
 		case "4":
-			PossessionMoveHandConversion = 15;
+			moveHandConversion[inputMoveHandCount] =15;
 			break;
 		case "5":
-			PossessionMoveHandConversion = 16;
+			moveHandConversion[inputMoveHandCount] =16;
 			break;
 		case "6":
-			PossessionMoveHandConversion = 17;
+			moveHandConversion[inputMoveHandCount] =17;
 			break;
 		case "7":
-			PossessionMoveHandConversion = 18;
+			moveHandConversion[inputMoveHandCount] =18;
 			break;
 		case "8":
-			PossessionMoveHandConversion = 19;
+			moveHandConversion[inputMoveHandCount] =19;
 			break;
 		}
 
 		// 座標に何があるか判定
-		discriminant.discriminant(moveHand, board, cConversion ,capturedPiece);
+		discriminant.discriminant(moveHand, board, cConversion ,capturedPiece,moveHandProcess );
 
 	}
 
-	public int getPossessionMoveHandConversion() {
-		return PossessionMoveHandConversion;
-	}
+
 
 	public int[] getMoveHandConversion() {
 		System.out.println("元の座標の値:" + moveHandConversion[0]);

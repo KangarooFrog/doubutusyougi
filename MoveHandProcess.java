@@ -5,6 +5,10 @@ public class MoveHandProcess {
 	private int second_flag = 0;
 
 
+	public int getSecond_flag() {
+		return second_flag;
+	}
+
 	// 移動元座標処理
 	public void moveFormerHandProcess(MoveHand moveHand, Shogi_board board, CoordinateConversion cConversion,
 			Discriminant discriminant, CoordinateCiscriminant cCiscriminant, FirstSecond firstSecond,
@@ -38,7 +42,11 @@ public class MoveHandProcess {
 				System.out.println("もう一度入力してください");
 			}
 
-			moveHand.putAfterMoveHand(moveHand, board, cConversion, discriminant, cCiscriminant, moveHandProcess,capturedPiece);
+			moveHand.putAfterMoveHand(moveHand, board, cConversion, discriminant, cCiscriminant, moveHandProcess,capturedPiece,firstSecond);
+
+			System.out.println("discriminant.getEaiResult():"+discriminant.getEaiResult());
+			System.out.println("second_flag:"+second_flag);
+
 			if (discriminant.getEaiResult() == second_flag) {
 				break outside1;
 			}
@@ -90,6 +98,7 @@ public class MoveHandProcess {
 					, cCiscriminant
 					,moveHandProcess
 					,capturedPiece
+					, firstSecond
 
 					);
 
