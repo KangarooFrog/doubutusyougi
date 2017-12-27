@@ -43,7 +43,7 @@ public class GameProgress {
 				// 入力した座標を盤面に反映させる
 				// 持ち駒も更新
 
-				boardUpdata.boardUpdata(firstSecond, cConversion, board, capturedPiece,moveHandProcess);
+				boardUpdata.boardUpdata(firstSecond, cConversion, board, capturedPiece, moveHandProcess);
 
 				// 盤面更新と持ち駒を更新
 				draw.draw(fixed, board, inputName, capturedPiece);
@@ -53,7 +53,7 @@ public class GameProgress {
 				if (gameDecsion.getgameDecsion() == true) {
 					break gameoutside;
 				}
-				//内手の順番替え
+				// 内手の順番替え
 				turn_change.turnChange(firstSecond);
 
 			}

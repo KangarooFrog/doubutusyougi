@@ -36,21 +36,23 @@ public class BoardUpdata {
 			System.out.println("移動先の値:" + board.getBoard()[cConversion.getMoveHandConversion()[1]] + "←多分空白");
 
 		}
-		System.out.println("cConversion.getMoveHandConversion()[0]:" + cConversion.getMoveHandConversion()[0]);
-		System.out.println("board.getBoard()[cConversion.getMoveHandConversion()[0]]:"
-				+ board.getBoard()[cConversion.getMoveHandConversion()[0]]);
-
 		if (cConversion.getMoveHandConversion()[0] <= 11 && cConversion.getMoveHandConversion()[0] >= 0) {
 			board.getBoard()[cConversion.getMoveHandConversion()[1]] = board
 					.getBoard()[cConversion.getMoveHandConversion()[0]];
 			board.getBoard()[cConversion.getMoveHandConversion()[0]] = "　";
 
 		} else if (cConversion.getMoveHandConversion()[0] >= 12 && cConversion.getMoveHandConversion()[0] <= 19) {
-			if (moveHandProcess.getSecond_flag() == 0) {
-				board.getBoard()[cConversion.getMoveHandConversion()[1]] = capturedPiece.getPieceInHandRow1()[1];
 
-			} else if (moveHandProcess.getSecond_flag() == 1) {
-				board.getBoard()[cConversion.getMoveHandConversion()[1]] = capturedPiece.getPieceInHandRow2()[1];
+			if (moveHandProcess.getSecond_flag() == 1) {
+				board.getBoard()[cConversion.getMoveHandConversion()[1]] =
+						capturedPiece.getPieceInHandRow2()[cConversion.getMoveHandConversion()[0]-12];
+				capturedPiece.getPieceInHandRow2()[cConversion.getMoveHandConversion()[0]-12]="　";
+
+			} else if (moveHandProcess.getSecond_flag() == 2) {
+				board.getBoard()[cConversion.getMoveHandConversion()[1]] =
+						capturedPiece.getPieceInHandRow1()[cConversion.getMoveHandConversion()[0]-12];
+				capturedPiece.getPieceInHandRow1()[cConversion.getMoveHandConversion()[0]-12]="　";
+
 			}
 
 		}

@@ -42,9 +42,6 @@ public class CoordinateConversion {
 			break;
 		case "2,2":
 			moveHandConversion[inputMoveHandCount] = 4;
-			System.out.println("i="+i);
-			System.out.println(moveHandConversion[0] );
-			System.out.println(moveHandConversion[1] );
 			break;
 		case "2,3":
 			moveHandConversion[inputMoveHandCount] = 5;
@@ -54,10 +51,6 @@ public class CoordinateConversion {
 			break;
 		case "3,2":
 			moveHandConversion[inputMoveHandCount] = 7;
-			System.out.println("通っているか");
-			System.out.println("i="+i);
-			System.out.println(moveHandConversion[0] );
-			System.out.println(moveHandConversion[1] );
 			break;
 		case "3,3":
 			moveHandConversion[inputMoveHandCount] = 8;
@@ -67,9 +60,6 @@ public class CoordinateConversion {
 			break;
 		case "4,2":
 			moveHandConversion[inputMoveHandCount] = 10;
-			System.out.println("i="+i);
-			System.out.println(moveHandConversion[0] );
-			System.out.println(moveHandConversion[1] );
 			break;
 		case "4,3":
 			moveHandConversion[inputMoveHandCount] = 11;
@@ -109,8 +99,8 @@ public class CoordinateConversion {
 
 
 	public int[] getMoveHandConversion() {
-		System.out.println("元の座標の値:" + moveHandConversion[0]);
-		System.out.println("移動先の座標の値:" + moveHandConversion[1]);
+		//System.out.println("元の座標の値:" + moveHandConversion[0]);
+		//System.out.println("移動先の座標の値:" + moveHandConversion[1]);
 		return moveHandConversion;
 	}
 
