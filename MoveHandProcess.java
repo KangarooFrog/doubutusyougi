@@ -9,17 +9,17 @@ public class MoveHandProcess {
 		return second_flag;
 	}
 
-	// 移動元座標処理
+	/* 移動元座標処理
+	 * FirstSecoundから現在の打ち手ではない打ち手の要素を作る(second_flag)
+	 * 入力してほしくないものが来たら再ループさせる
+	 */
 	public void moveFormerHandProcess(MoveHand moveHand, Shogi_board board, CoordinateConversion cConversion,
 			Discriminant discriminant, CoordinateCiscriminant cCiscriminant, FirstSecond firstSecond,
 			MoveHandProcess moveHandProcess,CapturedPiece capturedPiece) {
 
-		// 他のクラスで定義した方がよかった
-		// プレイヤー1ひらがなが、先攻の場合
 		if (firstSecond.getFistSecond() == 1) {
 			second_flag = 1;
 		}
-		// プレイヤー2カタカナが、先攻の場合
 		else if (firstSecond.getFistSecond() == 2) {
 			second_flag = 2;
 		} else {
@@ -30,9 +30,6 @@ public class MoveHandProcess {
 		}
 
 		int count = 0;
-		// 入力した座標にある駒が動かせなかった時再入力を促す。
-
-		// 指し手入力
 		System.out.println("動かしたい駒の座標を入力してください");
 
 		outside1: while (true) {
@@ -43,19 +40,21 @@ public class MoveHandProcess {
 			}
 
 			moveHand.putAfterMoveHand(moveHand, board, cConversion, discriminant, cCiscriminant, moveHandProcess,capturedPiece,firstSecond);
-
-			System.out.println("discriminant.getEaiResult():"+discriminant.getEaiResult());
-			System.out.println("second_flag:"+second_flag);
-
 			if (discriminant.getEaiResult() == second_flag) {
 				break outside1;
 			}
 		}
-
-		System.out.println("入力した座標の駒は、移動できます");
 	}
 
-	// 移動先座標処理
+	/*
+	 * 移動先座標処理
+	 * FirstSecoundから現在の打ち手ではない打ち手の要素を作る(second_flag)
+	 * 入力してほしくないものが来たら再ループさせる
+	 * 移動元の入力が今打ち手の駒であり、移動先には、移動できそうな座標なら次の処理に進む
+	 *
+	 * 反省点
+	 * 移動先の座標処理だけで止めておけばよかった
+	 */
 	public void moveTargetHandProcess(MoveHand moveHand, Shogi_board board, CoordinateConversion cConversion,
 			Discriminant discriminant, CoordinateCiscriminant cCiscriminant, FirstSecond firstSecond,
 			MoveHandProcess moveHandProcess ,CapturedPiece capturedPiece) {
@@ -63,12 +62,9 @@ public class MoveHandProcess {
 		PieceMotionDecision pieceMotionDecision = new PieceMotionDecision();
 
 		boolean pM = false;
-		// プレイヤー1、プレイヤー2どちらが先行でも処理できるように改善
-		// プレイヤー1ひらがなが、先攻の場合
 		if (firstSecond.getFistSecond() == 1) {
 			second_flag = 2;
 		}
-		// プレイヤー2カタカナが、先攻の場合
 		else if (firstSecond.getFistSecond() == 2) {
 			second_flag = 1;
 		}
@@ -89,7 +85,6 @@ public class MoveHandProcess {
 			}
 
 			System.out.println("駒の移動先を座標で入力してください");
-			// 指し手入力
 			moveHand.putAfterMoveHand(
 					moveHand
 					, board
@@ -102,19 +97,13 @@ public class MoveHandProcess {
 
 					);
 
-			// System.out.println(second_flag);
-			// 1 ひらがな 2カタカナ 3空白 4エラー
+			//次の移動元、移動先のチェック終了後の処理
 			if (discriminant.getEaiResult() == second_flag || discriminant.getEaiResult() == 3) {
-				// 駒が動けるかどうか判定
-				System.out.println("座標移動先:"+board.getBoard()[cConversion.getMoveHandConversion()[1]]);
 				pM = pieceMotionDecision.determineMotionPiece(cConversion, board, moveHandProcess);
-				 System.out.println("pM:"+pM);
 			}
 			if (pM)
 				break;
 		}
-		System.out.println("移動します。");
-
 	}
 
 

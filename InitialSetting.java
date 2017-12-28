@@ -1,5 +1,9 @@
 package doubutusyougi;
+
+
+
 //動物将棋開始直後の初期設定
+//初期段階で表示する無いようをここで決める。
 public class InitialSetting {
 	void doInitialSetting(Fixed fixed,Shogi_board board,Title
 			titleInput,CapturedPiece capturedPiece) {

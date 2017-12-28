@@ -19,7 +19,6 @@ public class Chicken {
 					|| cConversion.getMoveHandConversion()[1] - cConversion.getMoveHandConversion()[0] == 3) {
 				tureFalse = true;
 
-				System.out.println("にわとりは前進するぞ(プレイヤー１ ひらがな");
 			} else {
 				System.out.println("移動できない");
 				tureFalse = false;
@@ -32,8 +31,6 @@ public class Chicken {
 					|| cConversion.getMoveHandConversion()[1] - cConversion.getMoveHandConversion()[0] == 3
 					|| cConversion.getMoveHandConversion()[1] - cConversion.getMoveHandConversion()[0] == 4) {
 				tureFalse = true;
-
-				System.out.println("にわとりは前進するぞ(プレイヤー2 カタカナ");
 			} else {
 				System.out.println("移動できない");
 				tureFalse = false;

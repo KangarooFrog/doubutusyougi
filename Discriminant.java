@@ -1,6 +1,4 @@
 package doubutusyougi;
-
-//座標にいるものが何なのか解析する
 public class Discriminant {
 
 	private int eaiResult;
@@ -13,16 +11,14 @@ public class Discriminant {
 		this.eaiResult = eaiResult;
 	}
 
+/*
+ * 入力された座標には、空白、自分の駒、相手の駒が必ず存在するので、調べる。
+ */
 	public int discriminant(MoveHand moveHand, Shogi_board board, CoordinateConversion cConversion,
 			CapturedPiece capturedPiece ,MoveHandProcess moveHandProcess ) {
 
-
-
-		// 味方がどうか判定 ひらがなかどうかで判定する
-		// enemy_ally_identification 敵味方識別意味
-
 		System.out.println();
-
+		// enemy_ally_identification 敵味方識別意味
 		String eai = "";
 		if (moveHand.getConvertPutMoveHand().equals("1") || moveHand.getConvertPutMoveHand().equals("2")
 				|| moveHand.getConvertPutMoveHand().equals("3") || moveHand.getConvertPutMoveHand().equals("4")
@@ -32,19 +28,11 @@ public class Discriminant {
 			if(moveHandProcess.getSecond_flag() == 1) {
 
 			eai = capturedPiece.getPieceInHandRow1()[Integer.parseInt(moveHand.getConvertPutMoveHand()) - 1];
-			System.out.println("if文内のeai値:" + eai);
-			System.out.println("parseIntの結果値" + moveHand.getConvertPutMoveHand());
-			System.out.println("intger" + Integer.parseInt(moveHand.getConvertPutMoveHand()));
-			System.out.println("1つ目の手ごまの配列値:" + capturedPiece.getPieceInHandRow1()[0]);
 			}else if (moveHandProcess.getSecond_flag() == 2){
 
 				eai = capturedPiece.getPieceInHandRow2()[Integer.parseInt(moveHand.getConvertPutMoveHand()) - 1];
-				System.out.println("if文内のeai値:" + eai);
-				System.out.println("parseIntの結果値" + moveHand.getConvertPutMoveHand());
-				System.out.println("intger" + Integer.parseInt(moveHand.getConvertPutMoveHand()));
-				System.out.println("1つ目の手ごまの配列値:" + capturedPiece.getPieceInHandRow2()[0]);
-
-			}else {System.out.println("手ごまを使おうとしたがフラグの値がおかしい");}
+			}else {
+				System.out.println("手ごまを使おうとしたがフラグの値がおかしい");}
 
 		} else if (moveHand.getConvertPutMoveHand().equals("1,1") || moveHand.getConvertPutMoveHand().equals("1,2")
 				|| moveHand.getConvertPutMoveHand().equals("1,3") || moveHand.getConvertPutMoveHand().equals("2,1")
@@ -52,11 +40,7 @@ public class Discriminant {
 				|| moveHand.getConvertPutMoveHand().equals("3,1") || moveHand.getConvertPutMoveHand().equals("3,2")
 				|| moveHand.getConvertPutMoveHand().equals("3,3") || moveHand.getConvertPutMoveHand().equals("4,1")
 				|| moveHand.getConvertPutMoveHand().equals("4,2") || moveHand.getConvertPutMoveHand().equals("4,3")) {
-
 			eai = board.getBoard()[cConversion.getMoveHandConversion()[cConversion.getInputMoveHandCount()]];
-			System.out.println("if文内のeai値:" + eai);
-			System.out.println("parseIntの結果値" + moveHand.getConvertPutMoveHand());
-
 		} else {
 			System.out.println("ifに入らなかった");
 			System.out.println("if判定値:" + moveHand.getConvertPutMoveHand());

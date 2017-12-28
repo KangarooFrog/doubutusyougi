@@ -1,11 +1,9 @@
 package doubutusyougi;
 
-//座標変換
+/*将棋盤のデータを保持している配列は一次元配列なので、
+ *入力された座標を一次元配列用に数値を変換する
+ */
 public class CoordinateConversion {
-	// フィールドにプリミティブ型の変数が初期値をしていいない場合は、0で入るよ
-	// 参照型はnullが入るよ
-	// 移動元座標変換後に、moveHandConversion[0]
-	// 移動先座標変換後に、moveHandConversion[1]
 	private int[] moveHandConversion = new int[2];
 
 	// 指し手をカウントする
@@ -26,7 +24,6 @@ public class CoordinateConversion {
 		}else {System.out.println("0or1以外が入ってきた");}
 		i++;
 
-		System.out.println("座標表示:" + moveHand.getConvertPutMoveHand());
 		switch (moveHand.getConvertPutMoveHand()) {
 		case "1,1":
 			moveHandConversion[inputMoveHandCount] = 0;
@@ -64,6 +61,7 @@ public class CoordinateConversion {
 		case "4,3":
 			moveHandConversion[inputMoveHandCount] = 11;
 			break;
+
 		// 取った駒の座標変換(持ち駒）
 		case "1":
 			moveHandConversion[inputMoveHandCount] =12;
@@ -91,7 +89,7 @@ public class CoordinateConversion {
 			break;
 		}
 
-		// 座標に何があるか判定
+
 		discriminant.discriminant(moveHand, board, cConversion ,capturedPiece,moveHandProcess );
 
 	}
@@ -99,8 +97,6 @@ public class CoordinateConversion {
 
 
 	public int[] getMoveHandConversion() {
-		//System.out.println("元の座標の値:" + moveHandConversion[0]);
-		//System.out.println("移動先の座標の値:" + moveHandConversion[1]);
 		return moveHandConversion;
 	}
 

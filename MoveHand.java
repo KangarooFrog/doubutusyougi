@@ -2,7 +2,7 @@ package doubutusyougi;
 
 import java.util.Scanner;
 
-//駒の座標を打ち込ませるだけ
+//駒の座標を打ち込み、座標を保持する
 public class MoveHand {
 
 	private String convertPutMoveHand;
@@ -17,12 +17,8 @@ public class MoveHand {
 			,CapturedPiece capturedPiece
 			,FirstSecond firstSecond
 			) {
-
-
 		Scanner scanner = new Scanner(System.in);
 		convertPutMoveHand = scanner.next();
-
-		//指して座標が本当に盤面に存在するか判定
 		cCiscriminant.cCiscriminant(moveHand, board,cConversion,discriminant,cCiscriminant,moveHandProcess,capturedPiece,firstSecond);
 	}
 

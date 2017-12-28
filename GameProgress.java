@@ -29,31 +29,31 @@ public class GameProgress {
 		// 一番最初の描写
 		draw.draw(fixed, board, inputName, capturedPiece);
 
+		//本ゲームのメソッドをゲームが終わるまでループさせる
 		gameoutside: {
 			while (true) {
 
-				// 入力座標(移動したい駒)をどう処理するか判断する入力してほしくないものなら入力ループ
+				// 移動元の座標を正しく入力させる。
 				moveHandProcess.moveFormerHandProcess(moveHand, board, cConversion, discriminant, cCiscriminant,
 						firstSecond, moveHandProcess, capturedPiece);
 
-				// 入力座標(移動先の座標)をどう処理するか判断する 入力してほしくないものなら入力ループ
+				// 移動したい地点の座標を正しく入力させる。
 				moveHandProcess.moveTargetHandProcess(moveHand, board, cConversion, discriminant, cCiscriminant,
 						firstSecond, moveHandProcess, capturedPiece);
 
-				// 入力した座標を盤面に反映させる
-				// 持ち駒も更新
-
+				// 入力した座標の結果と持ち駒を更新
 				boardUpdata.boardUpdata(firstSecond, cConversion, board, capturedPiece, moveHandProcess);
 
-				// 盤面更新と持ち駒を更新
+				// 描写
 				draw.draw(fixed, board, inputName, capturedPiece);
 
-				// lionがとられたかどうか（勝負が決まったかどうか)
+				// ゲーム終了条件
 				gameDecsion.gameDecsion(capturedPiece);
 				if (gameDecsion.getgameDecsion() == true) {
 					break gameoutside;
 				}
-				// 内手の順番替え
+
+				//最後に打ち手の交代
 				turn_change.turnChange(firstSecond);
 
 			}

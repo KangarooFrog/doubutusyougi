@@ -19,8 +19,6 @@ public class Elephant {
 					||cConversion.getMoveHandConversion()[1] - cConversion.getMoveHandConversion()[0] == +4) {
 
 				tureFalse = true;
-
-				System.out.println("象は移動する");
 			} else {
 				System.out.println("移動できない");
 				tureFalse = false;
